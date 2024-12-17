@@ -1,0 +1,91 @@
+﻿body {
+    background-color: lightblue;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    flex: 1;
+    margin-top: 50px; /* Отступ сверху для контейнера */
+}
+
+.left-side {
+    width: 40%;
+    margin-top: 30px; /* Отступ сверху для левой части */
+}
+
+.right-side {
+    width: 50%;
+    padding: 10px;
+    background-color: #72bcd4; /* Светло-сиреневый фон */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: -65px; /* Отступ сверху для правой части */
+}
+
+
+.header {
+    text-align: center; /* Регистрация по центру */
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left; /* Возвращаем выравнивание текста по левому краю для label */
+}
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+#btnRegister, #btnLogin {
+    background-color: #90EE90; /* Более нежный зеленый цвет */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: block; /* Располагаем кнопку как блочный элемент */
+    margin: 20px auto; /* Центрируем кнопку по горизонтали */
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px; /* Скругление углов кнопки */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Добавляем стили для названия сайта */
+.site-title {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    color: black; /* Цвет текста - белый */
+
+    font: italic bold 24px sans-serif;
+}

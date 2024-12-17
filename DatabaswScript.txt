@@ -1,0 +1,201 @@
+CREATE TABLE [dbo].[CapsuleWardrobe](
+	[IDCapsuleWardrobe] [int] IDENTITY(1,1) NOT NULL,
+	[UserID] [int] NOT NULL,
+	[CreationDate] [datetime] NULL,
+	[DeletionDate] [datetime] NULL,
+	[Name] [varchar](255) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IDCapsuleWardrobe] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[CapsuleWardrobe] ADD  DEFAULT (getdate()) FOR [CreationDate]
+GO
+
+ALTER TABLE [dbo].[CapsuleWardrobe]  WITH CHECK ADD FOREIGN KEY([UserID])
+REFERENCES [dbo].[MyUser] ([ID])
+GO
+
+CREATE TABLE [dbo].[CapsuleWardrobeItems](
+	[IDCapsuleWardrobeItems] [int] IDENTITY(1,1) NOT NULL,
+	[CapsuleWardrobeID_FK] [int] NOT NULL,
+	[ClothingID_FK] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IDCapsuleWardrobeItems] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[CapsuleWardrobeItems]  WITH CHECK ADD FOREIGN KEY([CapsuleWardrobeID_FK])
+REFERENCES [dbo].[CapsuleWardrobe] ([IDCapsuleWardrobe])
+GO
+
+ALTER TABLE [dbo].[CapsuleWardrobeItems]  WITH CHECK ADD FOREIGN KEY([ClothingID_FK])
+REFERENCES [dbo].[Clothing] ([IDClothing])
+GO
+
+CREATE TABLE [dbo].[Clothing](
+	[IDClothing] [int] IDENTITY(1,1) NOT NULL,
+	[Type] [varchar](50) NOT NULL,
+	[Color] [varchar](50) NOT NULL,
+	[Season] [varchar](50) NOT NULL,
+	[Style] [varchar](50) NOT NULL,
+	[UserID] [int] NOT NULL,
+	[DateAdded] [datetime2](7) NOT NULL,
+	[ImagePath] [nvarchar](255) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IDClothing] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[Clothing] ADD  CONSTRAINT [DF_Clothing_DateAdded]  DEFAULT (getdate()) FOR [DateAdded]
+GO
+
+ALTER TABLE [dbo].[Clothing]  WITH CHECK ADD  CONSTRAINT [FK_Clothing_User] FOREIGN KEY([UserID])
+REFERENCES [dbo].[MyUser] ([ID])
+GO
+
+ALTER TABLE [dbo].[Clothing] CHECK CONSTRAINT [FK_Clothing_User]
+GO
+
+ALTER TABLE [dbo].[Clothing]  WITH CHECK ADD  CONSTRAINT [CK_ClothingType] CHECK  (([Type]='Цепочка' OR [Type]='Кольцо' OR [Type]='Сумка' OR [Type]='Обувь' OR [Type]='Рубашка' OR [Type]='Футболка' OR [Type]='Свитер' OR [Type]='Пальто' OR [Type]='Куртка' OR [Type]='Шорты' OR [Type]='Юбка' OR [Type]='Платье' OR [Type]='Кофта' OR [Type]='Джинсы' OR [Type]='Брюки' OR [Type]='Топ'))
+GO
+
+ALTER TABLE [dbo].[Clothing] CHECK CONSTRAINT [CK_ClothingType]
+GO
+
+ALTER TABLE [dbo].[Clothing]  WITH CHECK ADD  CONSTRAINT [CK_Color] CHECK  (([Color]='Бордовый' OR [Color]='Хаки' OR [Color]='Серебрянный' OR [Color]='Золотой' OR [Color]='Лиловый' OR [Color]='Бирюзовый' OR [Color]='голубой' OR [Color]='Бежевый' OR [Color]='Серый' OR [Color]='Коричневый' OR [Color]='Розовый' OR [Color]='Фиолетовый' OR [Color]='Оранжевый' OR [Color]='Желтый' OR [Color]='Зеленный' OR [Color]='Красный' OR [Color]='Синий' OR [Color]='Белый' OR [Color]='Черный'))
+GO
+
+ALTER TABLE [dbo].[Clothing] CHECK CONSTRAINT [CK_Color]
+GO
+
+ALTER TABLE [dbo].[Clothing]  WITH CHECK ADD  CONSTRAINT [CK_Season] CHECK  (([Season]='Зима-Весна' OR [Season]='Осень-Зима' OR [Season]='Лето-Осень' OR [Season]='Весна-Лето' OR [Season]='Осень' OR [Season]='Весна' OR [Season]='Лето' OR [Season]='Зима'))
+GO
+
+ALTER TABLE [dbo].[Clothing] CHECK CONSTRAINT [CK_Season]
+GO
+
+ALTER TABLE [dbo].[Clothing]  WITH CHECK ADD  CONSTRAINT [CK_Style] CHECK  (([Style]='Уличный' OR [Style]='Романтический' OR [Style]='Классический' OR [Style]='Вечерний' OR [Style]='Деловой' OR [Style]='Спортивный' OR [Style]='Повседневный'))
+GO
+
+ALTER TABLE [dbo].[Clothing] CHECK CONSTRAINT [CK_Style]
+GO
+
+CREATE TABLE [dbo].[Favorites](
+	[IDFavorites] [int] IDENTITY(1,1) NOT NULL,
+	[IndividualCapsuleID] [int] NOT NULL,
+	[UserID] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IDFavorites] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[Favorites]  WITH CHECK ADD FOREIGN KEY([IndividualCapsuleID])
+REFERENCES [dbo].[IndividualCapsule] ([IDIndividualCapsule])
+GO
+
+ALTER TABLE [dbo].[Favorites]  WITH CHECK ADD FOREIGN KEY([UserID])
+REFERENCES [dbo].[MyUser] ([ID])
+GO
+
+CREATE TABLE [dbo].[IndividualCapsule](
+	[IDIndividualCapsule] [int] IDENTITY(1,1) NOT NULL,
+	[UserID] [int] NOT NULL,
+	[Name] [varchar](255) NOT NULL,
+	[CreationDate] [datetime] NULL,
+	[DeletionDate] [datetime] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IDIndividualCapsule] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[IndividualCapsule] ADD  DEFAULT (getdate()) FOR [CreationDate]
+GO
+
+ALTER TABLE [dbo].[IndividualCapsule]  WITH CHECK ADD FOREIGN KEY([UserID])
+REFERENCES [dbo].[MyUser] ([ID])
+GO
+
+CREATE TABLE [dbo].[IndividualCapsuleClothing](
+	[ID_IndividualCapsuleClothing] [int] IDENTITY(1,1) NOT NULL,
+	[IndividualCapsuleID] [int] NOT NULL,
+	[ClothingID] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID_IndividualCapsuleClothing] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[IndividualCapsuleClothing]  WITH CHECK ADD FOREIGN KEY([ClothingID])
+REFERENCES [dbo].[Clothing] ([IDClothing])
+GO
+
+ALTER TABLE [dbo].[IndividualCapsuleClothing]  WITH CHECK ADD FOREIGN KEY([IndividualCapsuleID])
+REFERENCES [dbo].[IndividualCapsule] ([IDIndividualCapsule])
+GO
+
+
+CREATE TABLE [dbo].[MyUser](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Email_or_PhoneNumber] [varchar](255) NULL,
+	[Nickname] [varchar](20) NOT NULL,
+	[RegistrationDate] [datetime] NULL,
+	[Password] [nvarchar](255) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[Email_or_PhoneNumber] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[MyUser] ADD  DEFAULT (getdate()) FOR [RegistrationDate]
+GO
+
+ALTER TABLE [dbo].[MyUser]  WITH CHECK ADD CHECK  ((len([Nickname])>=(2) AND len([Nickname])<=(20)))
+GO
+
+ALTER TABLE [dbo].[MyUser]  WITH CHECK ADD  CONSTRAINT [CK_EmailOrPhoneNumber] CHECK  ((isnull(case when [Email_or_PhoneNumber] like '%@%' then (1) else (0) end,(0))=(1) OR isnull(case when [Email_or_PhoneNumber] like '+[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]' then (1) else (0) end,(0))=(1)))
+GO
+
+ALTER TABLE [dbo].[MyUser] CHECK CONSTRAINT [CK_EmailOrPhoneNumber]
+GO
+
+ALTER TABLE [dbo].[MyUser]  WITH CHECK ADD  CONSTRAINT [CK_Password] CHECK  ((len([Password])>=(8) AND [Password] like '%[A-Z]%' AND [Password] like '%[a-z]%' AND [Password] like '%[^a-zA-Z0-9 ]%'))
+GO
+
+ALTER TABLE [dbo].[MyUser] CHECK CONSTRAINT [CK_Password]
+GO
+
+CREATE TABLE [dbo].[Saved](
+	[IDSaved] [int] IDENTITY(1,1) NOT NULL,
+	[CapsuleWardrobeID] [int] NOT NULL,
+	[UserID] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IDSaved] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[Saved]  WITH CHECK ADD FOREIGN KEY([CapsuleWardrobeID])
+REFERENCES [dbo].[CapsuleWardrobe] ([IDCapsuleWardrobe])
+GO
+
+ALTER TABLE [dbo].[Saved]  WITH CHECK ADD FOREIGN KEY([UserID])
+REFERENCES [dbo].[MyUser] ([ID])
+GO
