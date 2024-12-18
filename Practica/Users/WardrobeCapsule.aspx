@@ -16,36 +16,36 @@
             justify-content: center;
             min-height: 100vh;
             margin: 0;
-            position:relative;
+            position: relative;
         }
 
         #header {
-            position:fixed;
+            position: fixed;
             top: 0px;
             left: 0px;
-            text-align:center;
+            text-align: center;
             margin-bottom: 20px;
         }
 
-        .container{
-            display:flex;
-            flex-direction:column;
-            align-items:center;
-            justify-content:center;
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             height: 100vh;
         }
 
-        .btn-capsule{
-            position:absolute;
-            right:20px;
+        .btn-capsule {
+            position: absolute;
+            right: 20px;
             bottom: 20px;
             display: inline-block;
             padding: 10px 20px;
-            background-color:azure;
-            color:blue;
-            text-decoration:none;
+            background-color: azure;
+            color: blue;
+            text-decoration: none;
             border-radius: 10px;
-            cursor:pointer;
+            cursor: pointer;
         }
 
         .btn {
@@ -62,14 +62,19 @@
             position: absolute;
             background-color: azure;
             margin-top: 25px;
-            left:20px;
+            left: 20px;
             bottom: 20px;
             display: inline-block;
             padding: 10px 20px;
-            color:blue;
+            color: blue;
             text-decoration: none;
             border-radius: 10px;
             cursor: pointer;
+        }
+
+        .clothing-image {
+            width: 100px;
+            height: 100px;
         }
     </style>
 </head>
@@ -78,8 +83,12 @@
         <div id="header">
             <h1>Online Stilist</h1>
         </div>
-       
-            <asp:Button ID="Button1" runat="server" Text="Получить капсульный гардероб" CssClass="btn-capsule" OnClick="Button1_Click" />
+
+        <asp:Button ID="Button1" runat="server" Text="Получить капсульный гардероб" CssClass="btn-capsule" OnClick="Button1_Click" />
+
+        <asp:PlaceHolder ID="placeholder" runat="server"></asp:PlaceHolder>
+
+        <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
 
         <a href="HomePage.aspx" class="btn btn-home">На главную</a>
     </form>
