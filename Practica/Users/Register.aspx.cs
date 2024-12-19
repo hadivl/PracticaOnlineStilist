@@ -5,6 +5,7 @@ using System.Web.Security;
 using System.Security.Cryptography;
 using BCrypt.Net;
 using System.Web.Helpers;
+using System.Text.RegularExpressions;
 
 namespace Practica.Users
 {
@@ -33,8 +34,12 @@ namespace Practica.Users
 				return;
 			}
 
+			if (!IsValidEmail(emailOrPhone))
+			{
+				lblError.Text = "Некорректный email.";
+				return;
+			}
 
-			// Хеширование пароля с помощью BCrypt
 			string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
 
 			string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
@@ -48,7 +53,7 @@ namespace Practica.Users
 					command.Parameters.AddWithValue("@Nickname", login);
 					command.Parameters.AddWithValue("@EmailOrPhone", emailOrPhone);
 					command.Parameters.AddWithValue("@RegistrationDate", DateTime.Now);
-					command.Parameters.AddWithValue("@Password", hashedPassword); // Добавляем хешированный пароль
+					command.Parameters.AddWithValue("@Password", hashedPassword); 
 
 
 					try
@@ -71,6 +76,11 @@ namespace Practica.Users
 					}
 				}
 			}
+		}
+		private bool IsValidEmail(string email)
+		{
+			string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+			return Regex.IsMatch(email, emailPattern);
 		}
 
 	}

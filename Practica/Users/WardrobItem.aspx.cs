@@ -57,7 +57,7 @@ namespace Practica.Users
 					return;
 				}
 
-				if (FileUpload1.PostedFile.ContentLength > 20 * 1024 * 1024) // 20MB limit
+				if (FileUpload1.PostedFile.ContentLength > 20 * 1024 * 1024) 
 				{
 					Label1.Text = "Ошибка: Максимальный размер файла - 20 МБ.";
 					return;

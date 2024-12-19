@@ -93,7 +93,7 @@
             const fileUpload = document.getElementById('FileUpload1');
             const uploadButton = document.getElementById('btnUpload');
 
-            uploadButton.classList.add('disabled'); //  кнопка серая
+            uploadButton.classList.add('disabled'); 
 
             fileUpload.addEventListener('change', function () {
                 if (fileUpload.files.length > 0) {
@@ -197,7 +197,7 @@
                 </asp:DropDownList>
             </div>
 
-            <asp:DataList ID="DataList1" runat="server" RepeatColumns="3" Visible="false">
+            <asp:DataList ID="DataList1" runat="server" RepeatColumns="9" Visible="false">
                 <ItemTemplate>
                     <asp:Image ID="UploadedImage" runat="server" ImageUrl='<%# ResolveUrl(Container.DataItem.ToString()) %>' Width="150px" Height="150px" />
                 </ItemTemplate>

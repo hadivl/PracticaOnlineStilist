@@ -4,6 +4,8 @@ using System.Data.SqlClient;
 using System;
 using System.Web.UI.WebControls;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using WebGrease.Activities;
 
 
 
@@ -24,44 +26,68 @@ namespace Practica.Users
 	{
 		protected void Button1_Click(object sender, EventArgs e)
 		{
-			try
-			{
-				int userId = GetUserID();
+			int userId = GetUserID();
+			List<List<Clothing>> clothesCombinations = FindSpecificClothes(userId);
+			List<Clothing> capsule = new List<Clothing>();
 
-				List<Clothing> capsule = FindSpecificClothes(userId);
-				if (capsule.Count > 0)
-				{
-					DisplayCapsuleWardrobe(new List<List<Clothing>> { capsule });
-					SaveCapsuleWardrobe(userId, "Название капсулы"); 
-				}
-				else
-				{
-					Label1.Text = "Вещи не найдены";
-				}
-			}
-			catch (Exception ex)
+			if (clothesCombinations.Count > 0)
 			{
-				Label1.Text = ex.Message;
+				foreach (var combination in clothesCombinations)
+				{
+					capsule.AddRange(combination); 
+				}
+
+
+				 DisplayCapsuleWardrobe(new List<List<Clothing>> { capsule }); 
+
+				SaveCapsuleWardrobe(userId, "Название капсулы");
 			}
+
 		}
 
-		private List<Clothing> FindSpecificClothes(int userId)
+		private List<List<Clothing>> FindSpecificClothes(int userId)
 		{
-			List<Clothing> clothes = new List<Clothing>();
+			List<List<Clothing>> combinations = new List<List<Clothing>>();
 			string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
 			using (SqlConnection connection = new SqlConnection(connectionString))
 			{
 				connection.Open();
 
-				string skirtQuery = "SELECT ImagePath FROM Clothing WHERE UserID = @UserID AND Type = 'Юбка' AND Color = 'Черный' AND Style = 'Повседневный' AND Season = 'Лето'";
-				string shirtQuery = "SELECT ImagePath FROM Clothing WHERE UserID = @UserID AND Type = 'Рубашка' AND Color = 'Белый' AND Style = 'Повседневный' AND Season = 'Лето'";
+				List<Tuple<string, string>> queryCombinations = new List<Tuple<string, string>>()
+		{
+			Tuple.Create(
+				"SELECT ImagePath FROM Clothing WHERE UserID = @UserID AND Type = 'Юбка' AND Color = 'Черный' AND Style = 'Повседневный' AND Season = 'Лето'",
+				"SELECT ImagePath FROM Clothing WHERE UserID = @UserID AND Type = 'Рубашка' AND Color = 'Белый' AND Style = 'Повседневный' AND Season = 'Лето'"
+			),
+			Tuple.Create(
+				"SELECT ImagePath FROM Clothing WHERE UserID = @UserID AND Type = 'Рубашка' AND Color = 'Белый' AND Style = 'Деловой' AND Season = 'Лето '",
+				"SELECT ImagePath FROM Clothing WHERE UserID = @UserID AND Type = 'Брюки' AND Color = 'Черный' AND Style = 'Деловой' AND Season = 'Лето'"
+			),
+			Tuple.Create(
+				"SELECT ImagePath FROM Clothing WHERE UserID = @UserID AND Type = 'Кофта' AND Color = 'Фиолетовый' AND Style = 'Спортивный' AND Season = 'Лето'",
+				"SELECT ImagePath FROM Clothing WHERE UserID = @UserID AND Type = 'Брюки' AND Color = 'Фиолетовый' AND Style = 'Спортивный' AND Season = 'Лето'"
+			),
+			Tuple.Create(
+				"SELECT ImagePath FROM Clothing WHERE UserID = @UserID AND Type = 'Шорты' AND Color = 'Белый' AND Style = 'Повседневный' AND Season = 'Лето '",
+				"SELECT ImagePath FROM Clothing WHERE UserID = @UserID AND Type = 'Футболка' AND Color = 'Голубой' AND Style = 'Повседневный' AND Season = 'Лето'"
+			)
+        };
 
-				clothes.AddRange(GetClothesByQuery(connection, skirtQuery, userId));
-				clothes.AddRange(GetClothesByQuery(connection, shirtQuery, userId));
+
+
+
+				foreach (var queryCombination in queryCombinations)
+				{
+					List<Clothing> combination = new List<Clothing>();
+					combination.AddRange(GetClothesByQuery(connection, queryCombination.Item1, userId));
+					combination.AddRange(GetClothesByQuery(connection, queryCombination.Item2, userId));
+					combinations.Add(combination);
+				}
+
 			}
 
-			return clothes;
+			return combinations;
 		}
 
 		private int GetUserID()
@@ -75,8 +101,10 @@ namespace Practica.Users
 			{
 				return userId;
 			}
+			lblError.Text = "Вы не авторизованы, пожалуйста, войдите в учетную запись.";
+	
 
-			throw new Exception("Пользователь не аутентифицирован."); 
+			return -1; 
 		}
 
 		private List<Clothing> GetClothesByQuery(SqlConnection connection, string query, int userId)
@@ -102,24 +130,34 @@ namespace Practica.Users
 		{
 			placeholder.Controls.Clear();
 
+			HtmlGenericControl containerDiv = new HtmlGenericControl("div");
+			containerDiv.Attributes["class"] = "capsule-container";
+
 			foreach (List<Clothing> look in capsuleWardrobe)
 			{
+				HtmlGenericControl divRow = new HtmlGenericControl("div");
+				divRow.Attributes["class"] = "row";
+
 				foreach (Clothing item in look)
 				{
 					System.Web.UI.WebControls.Image image = new System.Web.UI.WebControls.Image
 					{
 						ImageUrl = ResolveUrl(item.ImagePath),
 						AlternateText = "Clothing Image",
-						Width = 80,
-						Height = 80,
+						Width = 100,
+						Height = 100,
 						CssClass = "clothing-image"
 					};
 
-					placeholder.Controls.Add(image);
-					placeholder.Controls.Add(new LiteralControl("<br />"));
+					HtmlGenericControl divCol = new HtmlGenericControl("div");
+					divCol.Controls.Add(image);
+					divRow.Controls.Add(divCol);
 				}
-				placeholder.Controls.Add(new LiteralControl("<hr />"));
+
+				containerDiv.Controls.Add(divRow);
 			}
+
+			placeholder.Controls.Add(containerDiv);
 		}
 
 
@@ -154,6 +192,8 @@ namespace Practica.Users
 				return result != null && int.TryParse(result.ToString(), out int clothingId) ? clothingId : -1;
 			}
 		}
+
+
 
 
 	}

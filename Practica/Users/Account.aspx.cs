@@ -38,18 +38,18 @@ namespace Practica.Users
 						{
 							if (reader.Read())
 							{
-								UserNameLabel.Text = reader["Nickname"].ToString(); // Заполняем UserNameLabel
-								UserContactLabel.Text = reader["Email_or_PhoneNumber"].ToString(); // Заполняем UserContactLabel
+								UserNameLabel.Text = reader["Nickname"].ToString(); 
+								UserContactLabel.Text = reader["Email_or_PhoneNumber"].ToString(); 
 							}
 							else
 							{
-								lblError.Text = "Ошибка: пользователь не найден."; // Можно использовать lblError или другой Label для ошибок
+								lblError.Text = "Ошибка: пользователь не найден."; 
 							}
 						}
 					}
 					catch (Exception ex)
 					{
-						lblError.Text = "Ошибка базы данных: " + ex.Message; // Можно использовать lblError или другой Label для ошибок
+						lblError.Text = "Ошибка базы данных: " + ex.Message; 
 					}
 				}
 			}

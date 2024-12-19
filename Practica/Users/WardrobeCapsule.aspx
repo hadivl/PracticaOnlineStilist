@@ -72,25 +72,51 @@
             cursor: pointer;
         }
 
-        .clothing-image {
-            width: 100px;
-            height: 100px;
-        }
+
+
+.capsule-container {
+    display: flex;
+    flex-wrap: wrap; /* Позволяет переходить на новую строку для избыточных элементов */
+    gap: 20px;
+    justify-content: flex-start; /* Выравнивание комбинаций по начальной точке контейнера */
+}
+
+.row {
+display: flex
+;
+    flex-direction: row-reverse;
+    gap: 10px;
+    width: 200px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.clothing-image {
+    width: 100px;
+    height: 100px;
+}
+
+
+ 
     </style>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div id="header">
-            <h1>Online Stilist</h1>
-        </div>
+<form id="form1" runat="server">
+    <div id="header">
+        <h1>Online Stilist</h1>
+    </div>
 
-        <asp:Button ID="Button1" runat="server" Text="Получить капсульный гардероб" CssClass="btn-capsule" OnClick="Button1_Click" />
+    <asp:Button ID="Button1" runat="server" Text="Получить капсульный гардероб" CssClass="btn-capsule" OnClick="Button1_Click" />
+    <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+    <a href="HomePage.aspx" class="btn btn-home">На главную</a>
 
-        <asp:PlaceHolder ID="placeholder" runat="server"></asp:PlaceHolder>
+<div id="capsule-container">
+    <asp:PlaceHolder ID="placeholder" runat="server"></asp:PlaceHolder>
+</div>
 
-        <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+    <asp:Label ID="lblError" runat="server" ForeColor="Red"></asp:Label>
 
-        <a href="HomePage.aspx" class="btn btn-home">На главную</a>
-    </form>
+
+</form>
 </body>
 </html>
