@@ -12,6 +12,7 @@ namespace Practica.Users
 
 	public class Clothing
 	{
+		public int IDClothing { get; set; }
 		public string ImagePath { get; set; }
 		public string Style { get; set; }
 		public string Color { get; set; }
@@ -25,12 +26,13 @@ namespace Practica.Users
 		{
 			try
 			{
-				int userId = GetUserID(); // проверяем аутентификацию
+				int userId = GetUserID();
 
-				List<Clothing> capsule = FindSpecificClothes(userId); // Передаем userId в FindSpecificClothes
+				List<Clothing> capsule = FindSpecificClothes(userId);
 				if (capsule.Count > 0)
 				{
 					DisplayCapsuleWardrobe(new List<List<Clothing>> { capsule });
+					SaveCapsuleWardrobe(userId, "Название капсулы"); 
 				}
 				else
 				{
@@ -39,50 +41,42 @@ namespace Practica.Users
 			}
 			catch (Exception ex)
 			{
-				Label1.Text = ex.Message; // сообщение об ошибке аутентификации
+				Label1.Text = ex.Message;
 			}
 		}
+
 		private List<Clothing> FindSpecificClothes(int userId)
 		{
 			List<Clothing> clothes = new List<Clothing>();
 			string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
-
-
 			using (SqlConnection connection = new SqlConnection(connectionString))
 			{
-				//пока только для проверки работы
 				connection.Open();
+
 				string skirtQuery = "SELECT ImagePath FROM Clothing WHERE UserID = @UserID AND Type = 'Юбка' AND Color = 'Черный' AND Style = 'Повседневный' AND Season = 'Лето'";
 				string shirtQuery = "SELECT ImagePath FROM Clothing WHERE UserID = @UserID AND Type = 'Рубашка' AND Color = 'Белый' AND Style = 'Повседневный' AND Season = 'Лето'";
 
-
-
 				clothes.AddRange(GetClothesByQuery(connection, skirtQuery, userId));
-
 				clothes.AddRange(GetClothesByQuery(connection, shirtQuery, userId));
-
-
-
 			}
 
 			return clothes;
 		}
+
 		private int GetUserID()
 		{
 			if (Session["ID"] != null && int.TryParse(Session["ID"].ToString(), out int userId))
 			{
 				return userId;
 			}
-			else if (Request.Cookies["ID"] != null && int.TryParse(Request.Cookies["ID"].Value, out userId))
+
+			if (Request.Cookies["ID"] != null && int.TryParse(Request.Cookies["ID"].Value, out userId))
 			{
 				return userId;
 			}
-			else
-			{
-				// исключение, если пользователь не найден
-				throw new Exception("Пользователь не аутентифицирован. Пожалуйста, войдите в систему.");
-			}
+
+			throw new Exception("Пользователь не аутентифицирован."); 
 		}
 
 		private List<Clothing> GetClothesByQuery(SqlConnection connection, string query, int userId)
@@ -112,17 +106,14 @@ namespace Practica.Users
 			{
 				foreach (Clothing item in look)
 				{
-					System.Web.UI.WebControls.Image image = new System.Web.UI.WebControls.Image();
-					image.ImageUrl = ResolveUrl(item.ImagePath);
-
-					image.AlternateText = "Clothing Image";
-					//image.CssClass = "clothing-image";
-					placeholder.Controls.Add(image);
-					placeholder.Controls.Add(new LiteralControl("<br />"));
-
-					image.Width = 80; // Ширина 80
-					image.Height = 80;
-					image.CssClass = "clothing-image";//
+					System.Web.UI.WebControls.Image image = new System.Web.UI.WebControls.Image
+					{
+						ImageUrl = ResolveUrl(item.ImagePath),
+						AlternateText = "Clothing Image",
+						Width = 80,
+						Height = 80,
+						CssClass = "clothing-image"
+					};
 
 					placeholder.Controls.Add(image);
 					placeholder.Controls.Add(new LiteralControl("<br />"));
@@ -132,5 +123,41 @@ namespace Practica.Users
 		}
 
 
+
+		private int SaveCapsuleWardrobe(int userId, string capsuleName)
+		{
+			string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+			using (SqlConnection connection = new SqlConnection(connectionString))
+			{
+				connection.Open();
+				string query = "INSERT INTO CapsuleWardrobe (UserID, Name) VALUES (@UserID, @Name); SELECT SCOPE_IDENTITY();";
+				using (SqlCommand command = new SqlCommand(query, connection))
+				{
+					command.Parameters.AddWithValue("@UserID", userId);
+					command.Parameters.AddWithValue("@Name", capsuleName);
+					return Convert.ToInt32(command.ExecuteScalar());
+				}
+			}
+		}
+
+		private int GetClothingIdByImagePath(SqlConnection connection, string imagePath)
+		{
+			string normalizedImagePath = imagePath.Replace("~/", "");
+
+			string query = "SELECT IDClothing FROM Clothing WHERE ImagePath = @ImagePath";
+
+			using (SqlCommand command = new SqlCommand(query, connection))
+			{
+				command.Parameters.AddWithValue("@ImagePath", normalizedImagePath);
+				object result = command.ExecuteScalar();
+
+				return result != null && int.TryParse(result.ToString(), out int clothingId) ? clothingId : -1;
+			}
+		}
+
+
 	}
+
 }
+
+	
