@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Web.UI;
 using System.Data.SqlClient;
-using System.Web.Security;
 using System.Configuration;
 using BCrypt.Net;
 
@@ -12,60 +11,130 @@ namespace Practica.Users
 
 		protected void btnLogin_Click(object sender, EventArgs e)
 		{
+
 			string login = nickname.Text;
+			string emailOrPhone = phone_email.Text;
 			string password = this.password.Text;
 
-
-			if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(password))
-			{
-				ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Логин и пароль обязательны.');", true);
-				return;
-			}
-
 			string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-			string query = "SELECT Password, ID, Nickname, Email_or_PhoneNumber FROM [dbo].[MyUser] WHERE Nickname = @Login";
 
-			using (SqlConnection connection = new SqlConnection(connectionString))
+
+			try
 			{
-				using (SqlCommand command = new SqlCommand(query, connection))
+				using (SqlConnection connection = new SqlConnection(connectionString))
 				{
-					command.Parameters.AddWithValue("@Login", login);
+					connection.Open();
 
-					try
+					// Динамически формируем SQL-запрос
+					string query = "SELECT Password, ID, Nickname, Email_or_PhoneNumber FROM [dbo].[MyUser] WHERE ";
+					bool firstCondition = true; // Флаг для добавления "AND" или "OR"
+
+					if (!string.IsNullOrEmpty(login))
 					{
-						connection.Open();
+						query += "Nickname = @Login";
+						firstCondition = false;
+					}
+
+					if (!string.IsNullOrEmpty(emailOrPhone))
+					{
+						if (!firstCondition)
+						{
+							query += " AND ";
+						}
+
+						query += "Email_or_PhoneNumber = @EmailOrPhone";
+					}
+
+
+					if (string.IsNullOrEmpty(emailOrPhone) && string.IsNullOrEmpty(login))
+					{
+						ShowError("Заполните поля");
+						return;
+					}
+
+					using (SqlCommand command = new SqlCommand(query, connection))
+					{
+						if (!string.IsNullOrEmpty(login))
+						{
+							command.Parameters.AddWithValue("@Login", login);
+						}
+
+
+						if (!string.IsNullOrEmpty(emailOrPhone))
+						{
+							command.Parameters.AddWithValue("@EmailOrPhone", emailOrPhone);
+						}
+
 						using (SqlDataReader reader = command.ExecuteReader())
 						{
 							if (reader.Read())
 							{
-								string hashedPasswordFromDb = reader["Password"].ToString();
-								int userId = (int)reader["ID"];
-
-								if (BCrypt.Net.BCrypt.Verify(password, hashedPasswordFromDb))
+								// Проверяем пароль
+								if (BCrypt.Net.BCrypt.Verify(password, reader["Password"].ToString()))
 								{
-									Session["ID"] = userId;
-									Session["Nickname"] = reader["Nickname"].ToString();
-									Session["EmailOrPhone"] = reader["Email_or_PhoneNumber"].ToString();
-									Response.Redirect("HomePage.aspx");
+									SetSessionAndRedirect(reader);
+									return;
 								}
 								else
 								{
-									ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Неверный пароль.');", true);
+									ShowError("Неверный пароль.");
+									return;
 								}
 							}
 							else
 							{
-								ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Пользователь не найден.');", true);
+								// Ни логин, ни email не совпали
+								if (!string.IsNullOrEmpty(login) && !string.IsNullOrEmpty(emailOrPhone))
+								{
+
+									ShowError("Неверный логин и/или email/телефон.");
+								}
+								else if (!string.IsNullOrEmpty(login))
+								{
+									ShowError("Неверный логин");
+
+
+								}
+								else if (!string.IsNullOrEmpty(emailOrPhone))
+								{
+									ShowError("Неверный email/телефон");
+								}
+
+
+
+								return;
+
+
+
 							}
 						}
-					}
-					catch (Exception ex)
-					{
 
-						ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Ошибка: " + ex.Message + "');", true);
 					}
 				}
 			}
+			catch (Exception ex)
+			{
+				ShowError("Ошибка базы данных: " + ex.Message);
+				return;
+			}
+
+
+		}
+
+
+
+		private void SetSessionAndRedirect(SqlDataReader reader)
+		{
+			Session["ID"] = reader["ID"];
+			Session["Nickname"] = reader["Nickname"].ToString();
+			Session["EmailOrPhone"] = reader["Email_or_PhoneNumber"].ToString();
+			Response.Redirect("HomePage.aspx");
+		}
+
+
+		private void ShowError(string message)
+		{
+			ClientScript.RegisterStartupScript(this.GetType(), "alert", $"alert('{message}');", true);
 		}
 	}
 }

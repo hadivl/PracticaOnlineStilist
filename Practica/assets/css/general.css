@@ -13,18 +13,18 @@
     align-items: center;
     padding: 20px;
     flex: 1;
-    margin-top: 50px; /* Отступ сверху для контейнера */
+    margin-top: 50px;
 }
 
 .left-side {
     width: 40%;
-    margin-top: 30px; /* Отступ сверху для левой части */
+    margin-top: 30px; 
 }
 
 .right-side {
     width: 50%;
     padding: 10px;
-    background-color: #72bcd4; /* Светло-сиреневый фон */
+    background-color: #72bcd4; 
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-top: -65px; /* Отступ сверху для правой части */
@@ -38,7 +38,7 @@
 
 .form-group {
     margin-bottom: 15px;
-    text-align: left; /* Возвращаем выравнивание текста по левому краю для label */
+    text-align: left; 
 }
 
     .form-group label {
@@ -55,19 +55,27 @@
         box-sizing: border-box;
     }
 
-#btnRegister, #btnLogin {
-    background-color: #90EE90; /* Более нежный зеленый цвет */
+
+
+#btnLogin {
+    background-color: orangered; /* Red */
     border: none;
     color: white;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
-    display: block; /* Располагаем кнопку как блочный элемент */
+    display: block;
     margin: 20px auto; /* Центрируем кнопку по горизонтали */
     font-size: 16px;
     cursor: pointer;
-    border-radius: 4px; /* Скругление углов кнопки */
+    border-radius: 4px;
 }
+
+    /* Стиль для активной кнопки (зеленый) - переопределяет красный */
+    #btnLogin.active {
+        background-color: forestgreen; /* Green */
+    }
+
 
 img {
     max-width: 100%;
@@ -85,7 +93,7 @@ img {
     top: 20px;
     left: 20px;
     font-size: 24px;
-    color: black; /* Цвет текста - белый */
+    color: black; 
 
     font: italic bold 24px sans-serif;
 }

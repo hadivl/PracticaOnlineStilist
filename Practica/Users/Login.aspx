@@ -6,6 +6,8 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Авторизация</title>
+
+
     <link rel="stylesheet" href="../assets/css/general.css" />
 </head>
 <body>
@@ -25,20 +27,21 @@
 
                 <div class="form-group">
                     <label for="phone_email">Телефон/Почта:</label>
-                    <asp:TextBox ID="phone_email" runat="server" type="text"></asp:TextBox>
+                    <asp:TextBox ID="phone_email" runat="server" type="text"  ClientIDMode="Static"></asp:TextBox>
                 </div>
                 <div class="form-group">
                     <label for="nickname">Логин:</label>
-                    <asp:TextBox ID="nickname" runat="server" type="text"></asp:TextBox>
+                    <asp:TextBox ID="nickname" runat="server" type="text"  ClientIDMode="Static"></asp:TextBox>
                 </div>
                 <div class="form-group">
                     <label for="password">Введите пароль:</label>
-                    <asp:TextBox ID="password" runat="server" type="password"></asp:TextBox>
+                    <asp:TextBox ID="password" runat="server" type="password"  ClientIDMode="Static"></asp:TextBox>
                 </div>
-                <asp:Button ID="btnLogin" runat="server" Text="Войти" OnClick="btnLogin_Click" />
+                    <asp:Button ID="btnLogin" runat="server" Text="Войти" OnClick="btnLogin_Click" ClientIDMode="Static" /> 
                 <div class="login-link">
                     <a href="Register.aspx">Еще нет аккаунта? Зарегистрироваться</a>
                 </div>
+
 
             </div>
         </div>

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace Practica.Users
 {
@@ -20,57 +21,49 @@ namespace Practica.Users
 
 		private void LoadUserData()
 		{
-
-			if (Session["ID"] != null) // Проверка наличия ID пользователя в сессии
+			if (Session["ID"] != null && int.TryParse(Session["ID"].ToString(), out int userId))
 			{
-				int userID = Convert.ToInt32(Session["ID"]);
-
-				string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+				string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 				string query = "SELECT Nickname, Email_or_PhoneNumber FROM MyUser WHERE ID = @ID";
 
 				using (SqlConnection connection = new SqlConnection(connectionString))
+				using (SqlCommand command = new SqlCommand(query, connection))
 				{
-					using (SqlCommand command = new SqlCommand(query, connection))
+					command.Parameters.AddWithValue("@ID", userId);
+
+					try
 					{
-						command.Parameters.AddWithValue("@ID", userID);
-
-						try
+						connection.Open();
+						using (SqlDataReader reader = command.ExecuteReader())
 						{
-							connection.Open();
-							using (SqlDataReader reader = command.ExecuteReader())
+							if (reader.Read())
 							{
-								if (reader.Read())
-								{
-									lblNickname.Text = reader["Nickname"].ToString();
-									lblEmailOrPhone.Text = reader["Email_or_PhoneNumber"].ToString();
-								}
-								else
-								{
-
-									lblError.Text = "Ошибка: пользователь не найден.";
-								}
+								UserNameLabel.Text = reader["Nickname"].ToString(); // Заполняем UserNameLabel
+								UserContactLabel.Text = reader["Email_or_PhoneNumber"].ToString(); // Заполняем UserContactLabel
+							}
+							else
+							{
+								lblError.Text = "Ошибка: пользователь не найден."; // Можно использовать lblError или другой Label для ошибок
 							}
 						}
-						catch (Exception ex)
-						{
-							lblError.Text = "Ошибка базы данных: " + ex.Message;
-						}
+					}
+					catch (Exception ex)
+					{
+						lblError.Text = "Ошибка базы данных: " + ex.Message; // Можно использовать lblError или другой Label для ошибок
 					}
 				}
 			}
 			else
 			{
-				// Пользователь не авторизован - перенаправление на страницу входа
-				Response.Redirect("Login.aspx");
+				Response.Redirect("Login.aspx"); // Перенаправление, если пользователь не авторизован
 			}
 		}
 
-
-
 		protected void LogoutButton_Click(object sender, EventArgs e)
 		{
-			Session.Clear();
+			Session.Clear(); // Очистка сессии при выходе
 			Response.Redirect("Login.aspx");
 		}
 	}
 }
+
