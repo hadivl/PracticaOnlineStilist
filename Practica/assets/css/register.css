@@ -1,4 +1,5 @@
-﻿body {
+﻿
+body {
     background-color: lightblue;
     font-family: sans-serif;
     display: flex;
@@ -54,25 +55,23 @@
         box-sizing: border-box;
     }
 
-#btnLogin {
-    background-color: orangered;
+#btnRegister {
+    background-color: orangered; 
     border: none;
-    color: white;
-    padding: 15px 32px;
+    color: white; 
+    padding: 15px 32px; 
     text-align: center;
-    text-decoration: none;
     display: block;
-    margin: 20px auto;
+    margin: 20px auto; 
     font-size: 16px;
     cursor: pointer;
     border-radius: 4px;
     transition: background-color 0.3s;
 }
 
-    #btnLogin.active {
-        background-color: forestgreen;
+    #btnRegister.active {
+        background-color: forestgreen; 
     }
-
 
 img {
     max-width: 100%;
@@ -92,3 +91,4 @@ img {
     color: black;
     font: italic bold 24px sans-serif;
 }
+

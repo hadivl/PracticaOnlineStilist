@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\vlase\\source\\repos\\Practica\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{677BB0CF-0143-4380-9039-53B44D955F58}|Practica\\Practica.csproj|c:\\users\\vlase\\source\\repos\\practica\\practica\\users\\register.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{677BB0CF-0143-4380-9039-53B44D955F58}|Practica\\Practica.csproj|solutionrelative:practica\\users\\register.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{677BB0CF-0143-4380-9039-53B44D955F58}|Practica\\Practica.csproj|c:\\users\\vlase\\source\\repos\\practica\\practica\\users\\wardrobitem.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{677BB0CF-0143-4380-9039-53B44D955F58}|Practica\\Practica.csproj|solutionrelative:practica\\users\\wardrobitem.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{677BB0CF-0143-4380-9039-53B44D955F58}|Practica\\Practica.csproj|c:\\users\\vlase\\source\\repos\\practica\\practica\\users\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{677BB0CF-0143-4380-9039-53B44D955F58}|Practica\\Practica.csproj|solutionrelative:practica\\users\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{677BB0CF-0143-4380-9039-53B44D955F58}|Practica\\Practica.csproj|c:\\users\\vlase\\source\\repos\\practica\\practica\\users\\wardrobecapsule.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,40 +15,24 @@
       "RelativeMoniker": "D:0:0:{677BB0CF-0143-4380-9039-53B44D955F58}|Practica\\Practica.csproj|solutionrelative:practica\\users\\wardrobecapsule.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{677BB0CF-0143-4380-9039-53B44D955F58}|Practica\\Practica.csproj|c:\\users\\vlase\\source\\repos\\practica\\practica\\users\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{677BB0CF-0143-4380-9039-53B44D955F58}|Practica\\Practica.csproj|solutionrelative:practica\\users\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{677BB0CF-0143-4380-9039-53B44D955F58}|Practica\\Practica.csproj|c:\\users\\vlase\\source\\repos\\practica\\practica\\assets\\css\\wardrobecaps.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{677BB0CF-0143-4380-9039-53B44D955F58}|Practica\\Practica.csproj|solutionrelative:practica\\assets\\css\\wardrobecaps.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{677BB0CF-0143-4380-9039-53B44D955F58}|Practica\\Practica.csproj|c:\\users\\vlase\\source\\repos\\practica\\practica\\users\\register.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{677BB0CF-0143-4380-9039-53B44D955F58}|Practica\\Practica.csproj|solutionrelative:practica\\users\\register.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{677BB0CF-0143-4380-9039-53B44D955F58}|Practica\\Practica.csproj|c:\\users\\vlase\\source\\repos\\practica\\practica\\users\\homepage.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{677BB0CF-0143-4380-9039-53B44D955F58}|Practica\\Practica.csproj|solutionrelative:practica\\users\\homepage.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{677BB0CF-0143-4380-9039-53B44D955F58}|Practica\\Practica.csproj|C:\\Users\\vlase\\source\\repos\\Practica\\practica\\users\\account.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "AbsoluteMoniker": "D:0:0:{677BB0CF-0143-4380-9039-53B44D955F58}|Practica\\Practica.csproj|c:\\users\\vlase\\source\\repos\\practica\\practica\\assets\\css\\homepage.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{677BB0CF-0143-4380-9039-53B44D955F58}|Practica\\Practica.csproj|solutionrelative:practica\\assets\\css\\homepage.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{677BB0CF-0143-4380-9039-53B44D955F58}|Practica\\Practica.csproj|c:\\users\\vlase\\source\\repos\\practica\\practica\\users\\account.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{677BB0CF-0143-4380-9039-53B44D955F58}|Practica\\Practica.csproj|solutionrelative:practica\\users\\account.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{677BB0CF-0143-4380-9039-53B44D955F58}|Practica\\Practica.csproj|c:\\users\\vlase\\source\\repos\\practica\\practica\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{677BB0CF-0143-4380-9039-53B44D955F58}|Practica\\Practica.csproj|solutionrelative:practica\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{677BB0CF-0143-4380-9039-53B44D955F58}|Practica\\Practica.csproj|c:\\users\\vlase\\source\\repos\\practica\\practica\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{677BB0CF-0143-4380-9039-53B44D955F58}|Practica\\Practica.csproj|solutionrelative:practica\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{677BB0CF-0143-4380-9039-53B44D955F58}|Practica\\Practica.csproj|c:\\users\\vlase\\source\\repos\\practica\\practica\\users\\wardrobitem.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{677BB0CF-0143-4380-9039-53B44D955F58}|Practica\\Practica.csproj|solutionrelative:practica\\users\\wardrobitem.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{677BB0CF-0143-4380-9039-53B44D955F58}|Practica\\Practica.csproj|C:\\Users\\vlase\\source\\repos\\Practica\\practica\\users\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{677BB0CF-0143-4380-9039-53B44D955F58}|Practica\\Practica.csproj|solutionrelative:practica\\users\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{677BB0CF-0143-4380-9039-53B44D955F58}|Practica\\Practica.csproj|C:\\Users\\vlase\\source\\repos\\Practica\\practica\\assets\\css\\general.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{677BB0CF-0143-4380-9039-53B44D955F58}|Practica\\Practica.csproj|solutionrelative:practica\\assets\\css\\general.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{677BB0CF-0143-4380-9039-53B44D955F58}|Practica\\Practica.csproj|C:\\Users\\vlase\\source\\repos\\Practica\\practica\\users\\account.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{677BB0CF-0143-4380-9039-53B44D955F58}|Practica\\Practica.csproj|solutionrelative:practica\\users\\account.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{677BB0CF-0143-4380-9039-53B44D955F58}|Practica\\Practica.csproj|c:\\users\\vlase\\source\\repos\\practica\\practica\\assets\\css\\account.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{677BB0CF-0143-4380-9039-53B44D955F58}|Practica\\Practica.csproj|solutionrelative:practica\\assets\\css\\account.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,25 +42,41 @@
       "DocumentGroups": [
         {
           "DockedWidth": 68,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
+              "Title": "wardrobeCaps.css",
+              "DocumentMoniker": "C:\\Users\\vlase\\source\\repos\\Practica\\Practica\\assets\\css\\wardrobeCaps.css",
+              "RelativeDocumentMoniker": "Practica\\assets\\css\\wardrobeCaps.css",
+              "ToolTip": "C:\\Users\\vlase\\source\\repos\\Practica\\Practica\\assets\\css\\wardrobeCaps.css",
+              "RelativeToolTip": "Practica\\assets\\css\\wardrobeCaps.css",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAIwHIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-12-20T12:17:40.579Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "WardrobeCapsule.aspx.cs",
               "DocumentMoniker": "C:\\Users\\vlase\\source\\repos\\Practica\\Practica\\Users\\WardrobeCapsule.aspx.cs",
               "RelativeDocumentMoniker": "Practica\\Users\\WardrobeCapsule.aspx.cs",
               "ToolTip": "C:\\Users\\vlase\\source\\repos\\Practica\\Practica\\Users\\WardrobeCapsule.aspx.cs",
               "RelativeToolTip": "Practica\\Users\\WardrobeCapsule.aspx.cs",
-              "ViewState": "AgIAAKYAAAAAAAAAAAAAAK8AAABCAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAA8wB0AAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-19T03:08:01.624Z",
-              "IsPinned": true,
+              "WhenOpened": "2024-12-20T12:17:36.2Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "WardrobeCapsule.aspx",
               "DocumentMoniker": "C:\\Users\\vlase\\source\\repos\\Practica\\Practica\\Users\\WardrobeCapsule.aspx",
               "RelativeDocumentMoniker": "Practica\\Users\\WardrobeCapsule.aspx",
@@ -88,56 +84,12 @@
               "RelativeToolTip": "Practica\\Users\\WardrobeCapsule.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-12-19T03:08:51.937Z",
-              "IsPinned": true,
+              "WhenOpened": "2024-12-20T12:17:29Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Register.aspx",
-              "DocumentMoniker": "C:\\Users\\vlase\\source\\repos\\Practica\\Practica\\Users\\Register.aspx",
-              "RelativeDocumentMoniker": "Practica\\Users\\Register.aspx",
-              "ToolTip": "C:\\Users\\vlase\\source\\repos\\Practica\\Practica\\Users\\Register.aspx",
-              "RelativeToolTip": "Practica\\Users\\Register.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-12-19T09:19:41.967Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "WardrobItem.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\vlase\\source\\repos\\Practica\\Practica\\Users\\WardrobItem.aspx.cs",
-              "RelativeDocumentMoniker": "Practica\\Users\\WardrobItem.aspx.cs",
-              "ToolTip": "C:\\Users\\vlase\\source\\repos\\Practica\\Practica\\Users\\WardrobItem.aspx.cs",
-              "RelativeToolTip": "Practica\\Users\\WardrobItem.aspx.cs",
-              "ViewState": "AgIAAL8AAAAAAAAAAAASwMkAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-19T06:39:54.379Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Register.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\vlase\\source\\repos\\Practica\\Practica\\Users\\Register.aspx.cs",
-              "RelativeDocumentMoniker": "Practica\\Users\\Register.aspx.cs",
-              "ToolTip": "C:\\Users\\vlase\\source\\repos\\Practica\\Practica\\Users\\Register.aspx.cs",
-              "RelativeToolTip": "Practica\\Users\\Register.aspx.cs",
-              "ViewState": "AgIAAEMAAAAAAAAAAAAcwFYAAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-19T07:30:51.24Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "Login.aspx",
               "DocumentMoniker": "C:\\Users\\vlase\\source\\repos\\Practica\\Practica\\Users\\Login.aspx",
               "RelativeDocumentMoniker": "Practica\\Users\\Login.aspx",
@@ -145,20 +97,46 @@
               "RelativeToolTip": "Practica\\Users\\Login.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-12-19T08:03:56.781Z",
+              "WhenOpened": "2024-12-20T12:09:59.689Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "homepage.css",
+              "DocumentMoniker": "C:\\Users\\vlase\\source\\repos\\Practica\\Practica\\assets\\css\\homepage.css",
+              "RelativeDocumentMoniker": "Practica\\assets\\css\\homepage.css",
+              "ToolTip": "C:\\Users\\vlase\\source\\repos\\Practica\\Practica\\assets\\css\\homepage.css",
+              "RelativeToolTip": "Practica\\assets\\css\\homepage.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-12-20T12:13:35.411Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "HomePage.aspx",
+              "DocumentMoniker": "C:\\Users\\vlase\\source\\repos\\Practica\\Practica\\Users\\HomePage.aspx",
+              "RelativeDocumentMoniker": "Practica\\Users\\HomePage.aspx",
+              "ToolTip": "C:\\Users\\vlase\\source\\repos\\Practica\\Practica\\Users\\HomePage.aspx",
+              "RelativeToolTip": "Practica\\Users\\HomePage.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-12-20T12:12:39.027Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "Web.config",
-              "DocumentMoniker": "C:\\Users\\vlase\\source\\repos\\Practica\\Practica\\Web.config",
-              "RelativeDocumentMoniker": "Practica\\Web.config",
-              "ToolTip": "C:\\Users\\vlase\\source\\repos\\Practica\\Practica\\Web.config",
-              "RelativeToolTip": "Practica\\Web.config",
-              "ViewState": "AgIAADUAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2024-12-19T05:02:57.65Z",
+              "Title": "account.css",
+              "DocumentMoniker": "C:\\Users\\vlase\\source\\repos\\Practica\\Practica\\assets\\css\\account.css",
+              "RelativeDocumentMoniker": "Practica\\assets\\css\\account.css",
+              "ToolTip": "C:\\Users\\vlase\\source\\repos\\Practica\\Practica\\assets\\css\\account.css",
+              "RelativeToolTip": "Practica\\assets\\css\\account.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-12-20T12:09:13.117Z",
               "EditorCaption": ""
             },
             {
@@ -171,71 +149,8 @@
               "RelativeToolTip": "Practica\\Users\\Account.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-12-19T01:21:17.383Z",
+              "WhenOpened": "2024-12-20T12:08:43.364Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Global.asax.cs",
-              "DocumentMoniker": "C:\\Users\\vlase\\source\\repos\\Practica\\Practica\\Global.asax.cs",
-              "RelativeDocumentMoniker": "Practica\\Global.asax.cs",
-              "ToolTip": "C:\\Users\\vlase\\source\\repos\\Practica\\Practica\\Global.asax.cs",
-              "RelativeToolTip": "Practica\\Global.asax.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-19T05:02:54.755Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "WardrobItem.aspx",
-              "DocumentMoniker": "C:\\Users\\vlase\\source\\repos\\Practica\\Practica\\Users\\WardrobItem.aspx",
-              "RelativeDocumentMoniker": "Practica\\Users\\WardrobItem.aspx",
-              "ToolTip": "C:\\Users\\vlase\\source\\repos\\Practica\\Practica\\Users\\WardrobItem.aspx",
-              "RelativeToolTip": "Practica\\Users\\WardrobItem.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-12-19T04:20:25.021Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "general.css",
-              "DocumentMoniker": "C:\\Users\\vlase\\source\\repos\\Practica\\Practica\\assets\\css\\general.css",
-              "RelativeDocumentMoniker": "Practica\\assets\\css\\general.css",
-              "ToolTip": "C:\\Users\\vlase\\source\\repos\\Practica\\Practica\\assets\\css\\general.css",
-              "RelativeToolTip": "Practica\\assets\\css\\general.css",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAowEoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-12-19T02:29:11.402Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Login.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\vlase\\source\\repos\\Practica\\Practica\\Users\\Login.aspx.cs",
-              "RelativeDocumentMoniker": "Practica\\Users\\Login.aspx.cs",
-              "ToolTip": "C:\\Users\\vlase\\source\\repos\\Practica\\Practica\\Users\\Login.aspx.cs",
-              "RelativeToolTip": "Practica\\Users\\Login.aspx.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAxwAsAAAA7AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-19T01:29:28.151Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Account.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\vlase\\source\\repos\\Practica\\Practica\\Users\\Account.aspx.cs",
-              "RelativeDocumentMoniker": "Practica\\Users\\Account.aspx.cs",
-              "ToolTip": "C:\\Users\\vlase\\source\\repos\\Practica\\Practica\\Users\\Account.aspx.cs",
-              "RelativeToolTip": "Practica\\Users\\Account.aspx.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAswEQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-19T01:21:02.682Z"
             }
           ]
         }

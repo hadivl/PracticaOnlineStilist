@@ -55,13 +55,13 @@ namespace Practica.Users
 			}
 			else
 			{
-				Response.Redirect("Login.aspx"); // Перенаправление, если пользователь не авторизован
+				Response.Redirect("Login.aspx");
 			}
 		}
 
 		protected void LogoutButton_Click(object sender, EventArgs e)
 		{
-			Session.Clear(); // Очистка сессии при выходе
+			Session.Clear(); 
 			Response.Redirect("Login.aspx");
 		}
 	}

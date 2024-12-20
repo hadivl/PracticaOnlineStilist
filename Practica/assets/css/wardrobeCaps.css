@@ -1,0 +1,114 @@
+﻿body {
+    background-color: lightblue;
+}
+
+.image-container {
+    width: 25%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.image-item {
+    width: 23%;
+    margin: 1%;
+    box-sizing: border-box;
+}
+
+.btn-home {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    background-color: #1976D2;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+}
+
+    .btn-home:hover {
+        background-color: #1565C0;
+    }
+
+.btn-capsule {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: lightgreen;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    .btn-capsule:hover {
+        background-color: darkgreen;
+    }
+
+.file-upload {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.file-input {
+    background-color: lightblue;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.upload-button {
+    background-color: lightgreen;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    .upload-button.disabled {
+        background-color: gray !important;
+        color: white !important;
+        cursor: default !important;
+        pointer-events: none !important;
+    }
+
+    .upload-button.enabled {
+        background-color: lightgreen;
+        color: white;
+        cursor: pointer;
+        pointer-events: auto;
+    }
+
+.input-group {
+    display: inline-block;
+    margin-right: 20px;
+    vertical-align: middle;
+}
+
+    .input-group label {
+        display: inline-block;
+        margin-right: 5px;
+    }
+
+
+.combination-frame {
+    border: 2px solid #72bcd4;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.image-item {
+    width: 100px;
+    height: auto;
+    margin: 5px;
+}

@@ -24,6 +24,23 @@ namespace Practica.Users
 
 	public partial class WardrobeCapsule : System.Web.UI.Page
 	{
+
+
+		protected void Page_Load(object sender, EventArgs e)
+		{
+			if (!IsPostBack)
+			{
+				int userId = GetUserID();
+
+
+				if (userId != -1)
+				{
+					List<List<Clothing>> combinations = FindSpecificClothes(userId);
+					DisplayCombinations(combinations);
+				}
+			}
+		}
+
 		protected void Button1_Click(object sender, EventArgs e)
 		{
 			int userId = GetUserID();
@@ -34,11 +51,11 @@ namespace Practica.Users
 			{
 				foreach (var combination in clothesCombinations)
 				{
-					capsule.AddRange(combination); 
+					capsule.AddRange(combination);
 				}
 
 
-				 DisplayCapsuleWardrobe(new List<List<Clothing>> { capsule }); 
+				DisplayCapsuleWardrobe(new List<List<Clothing>> { capsule });
 
 				SaveCapsuleWardrobe(userId, "Название капсулы");
 			}
@@ -72,7 +89,7 @@ namespace Practica.Users
 				"SELECT ImagePath FROM Clothing WHERE UserID = @UserID AND Type = 'Шорты' AND Color = 'Белый' AND Style = 'Повседневный' AND Season = 'Лето '",
 				"SELECT ImagePath FROM Clothing WHERE UserID = @UserID AND Type = 'Футболка' AND Color = 'Голубой' AND Style = 'Повседневный' AND Season = 'Лето'"
 			)
-        };
+		};
 
 
 
@@ -102,9 +119,9 @@ namespace Practica.Users
 				return userId;
 			}
 			lblError.Text = "Вы не авторизованы, пожалуйста, войдите в учетную запись.";
-	
 
-			return -1; 
+
+			return -1;
 		}
 
 		private List<Clothing> GetClothesByQuery(SqlConnection connection, string query, int userId)
@@ -195,9 +212,28 @@ namespace Practica.Users
 
 
 
+		private void DisplayCombinations(List<List<Clothing>> combinations)//соединить с DisplayCapsuleWardrobe?
+		{
+			foreach (var combination in combinations)
+			{
+				Panel panel = new Panel();
+				panel.CssClass = "combination-frame";
+
+
+				foreach (var clothing in combination)
+				{
+					Image img = new Image();
+					img.ImageUrl = clothing.ImagePath;
+					img.AlternateText = "Одежда";
+					img.CssClass = "image-item";
+
+					panel.Controls.Add(img);
+				}
+				placeholder.Controls.Add(panel);
+			}
+		}
 
 	}
 
 }
 
-	

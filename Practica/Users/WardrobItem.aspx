@@ -88,24 +88,7 @@
     </style>
 
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const fileUpload = document.getElementById('FileUpload1');
-            const uploadButton = document.getElementById('btnUpload');
 
-            uploadButton.classList.add('disabled'); 
-
-            fileUpload.addEventListener('change', function () {
-                if (fileUpload.files.length > 0) {
-                    uploadButton.classList.remove('disabled');
-                    uploadButton.classList.add('enabled');
-                } else {
-                    uploadButton.classList.remove('enabled');
-                    uploadButton.classList.add('disabled');
-                }
-            });
-        });
-    </script>
 
 
 </head>

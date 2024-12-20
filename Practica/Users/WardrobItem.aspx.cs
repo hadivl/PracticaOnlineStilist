@@ -57,7 +57,7 @@ namespace Practica.Users
 					return;
 				}
 
-				if (FileUpload1.PostedFile.ContentLength > 20 * 1024 * 1024) 
+				if (FileUpload1.PostedFile.ContentLength > 20 * 1024 * 1024)
 				{
 					Label1.Text = "Ошибка: Максимальный размер файла - 20 МБ.";
 					return;
@@ -94,7 +94,7 @@ namespace Practica.Users
 							connection.Open();
 							command.ExecuteNonQuery();
 							Label1.Text = "Изображение успешно загружено!";
-							LoadUserImages(userId); // Перезагрузка изображений
+							LoadUserImages(userId); // испправить
 						}
 
 						catch (SqlException ex)
@@ -112,8 +112,8 @@ namespace Practica.Users
 						}
 						finally
 						{
-							// Это относится к внутреннему try
-							FileUpload1.Dispose(); // Освобождение ресурсов FileUpload
+
+							FileUpload1.Dispose();
 							this.Page.ClientScript.RegisterStartupScript(this.GetType(), "ResetForm", "document.forms[0].reset();", true);
 
 						}

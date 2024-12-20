@@ -53,7 +53,7 @@ namespace Practica.Users
 					command.Parameters.AddWithValue("@Nickname", login);
 					command.Parameters.AddWithValue("@EmailOrPhone", emailOrPhone);
 					command.Parameters.AddWithValue("@RegistrationDate", DateTime.Now);
-					command.Parameters.AddWithValue("@Password", hashedPassword); 
+					command.Parameters.AddWithValue("@Password", hashedPassword);
 
 
 					try
